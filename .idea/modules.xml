@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/UBB.iml" filepath="$PROJECT_DIR$/UBB.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ubb-java/ubb2.iml" filepath="$PROJECT_DIR$/ubb-java/ubb2.iml" />
     </modules>
   </component>
 </project>
