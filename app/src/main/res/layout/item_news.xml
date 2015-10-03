@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:padding="@dimen/activity_margin"
+    android:layout_height="wrap_content">
+
+   <TextView
+       android:fontFamily="sans-serif"
+       android:textStyle="bold"
+       android:textAllCaps="true"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="S-au afișat noile grupe"
+       android:paddingBottom="5dp"/>
+
+    <TextView
+        android:alpha="0.7"
+        android:fontFamily="sans-serif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="În semestrul II al anului universitar 2015-2016, facultatea noastă are la dispoziţie următoarele burse CEEPUS pentru care studenţii interesaţi pot depune cereri: ELTE Budapesta 1×1 lună Linz, Austria 1×4 luni + 1×1 lună Plovdiv, Bulgaria 1×1 lună Szeged, Ungaria 1×4 luni Este posibil să se primească locuri prin redistribuire şi la alte universităţi din Ungaria,"/>
+
+
+</LinearLayout>
