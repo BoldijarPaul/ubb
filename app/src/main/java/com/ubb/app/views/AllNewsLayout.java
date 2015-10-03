@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 
 import com.ubb.app.R;
 import com.ubb.app.models.NewsList;
@@ -17,9 +16,7 @@ import java.util.Observer;
  */
 public class AllNewsLayout extends LinearLayout implements Observer {
 
-    private ListView newsListView;
     private SwipeRefreshLayout swipeRefreshLayout;
-
 
     private NewsList newsListModel;
 
@@ -45,15 +42,21 @@ public class AllNewsLayout extends LinearLayout implements Observer {
     public void setNewsListModel(NewsList newsListModel) {
         this.newsListModel = newsListModel;
         this.newsListModel.addObserver(this);
+        updateView();
     }
 
     private void initializeLayout() {
-        newsListView = (ListView) findViewById(R.id.activity_main_listview);
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.activity_main_swiperefresh);
+
+
+    }
+
+    public void updateView() {
     }
 
     @Override
     public void update(Observable observable, Object data) {
+        updateView();
 
     }
 }

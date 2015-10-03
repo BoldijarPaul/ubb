@@ -9,6 +9,16 @@ public class News {
     private String content;
     private String htmlContent;
 
+    public News() {
+    }
+
+    public News(String title, String date, String content, String htmlContent) {
+        this.title = title;
+        this.date = date;
+        this.content = content;
+        this.htmlContent = htmlContent;
+    }
+
     public String getTitle() {
         return title;
     }
