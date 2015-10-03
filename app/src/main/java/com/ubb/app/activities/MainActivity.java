@@ -1,7 +1,9 @@
-package com.ubb.app;
+package com.ubb.app.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.ubb.app.R;
 
 public class MainActivity extends AppCompatActivity {
 
