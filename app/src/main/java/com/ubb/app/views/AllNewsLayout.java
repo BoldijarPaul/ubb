@@ -7,14 +7,21 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.ubb.app.R;
+import com.ubb.app.models.NewsList;
+
+import java.util.Observable;
+import java.util.Observer;
 
 /**
  * Created by Browsing on 10/3/2015.
  */
-public class AllNewsLayout extends LinearLayout {
+public class AllNewsLayout extends LinearLayout implements Observer {
 
     private ListView newsListView;
     private SwipeRefreshLayout swipeRefreshLayout;
+
+
+    private NewsList newsListModel;
 
     public AllNewsLayout(Context context) {
         super(context);
@@ -35,8 +42,18 @@ public class AllNewsLayout extends LinearLayout {
         initializeLayout();
     }
 
+    public void setNewsListModel(NewsList newsListModel) {
+        this.newsListModel = newsListModel;
+        this.newsListModel.addObserver(this);
+    }
+
     private void initializeLayout() {
         newsListView = (ListView) findViewById(R.id.activity_main_listview);
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.activity_main_swiperefresh);
+    }
+
+    @Override
+    public void update(Observable observable, Object data) {
+
     }
 }
