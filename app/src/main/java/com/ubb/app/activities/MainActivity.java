@@ -2,14 +2,18 @@ package com.ubb.app.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 import com.ubb.app.R;
+import com.ubb.app.views.AllNewsLayout;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+        AllNewsLayout allNewsLayout = (AllNewsLayout) View.inflate(this, R.layout.activity_main, null);
+        setContentView(allNewsLayout);
     }
 }
