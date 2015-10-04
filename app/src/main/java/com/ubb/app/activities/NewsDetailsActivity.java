@@ -16,5 +16,7 @@ public class NewsDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         final NewsLayout newsLayout = (NewsLayout) View.inflate(this, R.layout.activity_news_details, null);
         setContentView(newsLayout);
+
+
     }
 }
