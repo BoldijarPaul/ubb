@@ -5,11 +5,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.shirwa.simplistic_rss.RssItem;
 import com.ubb.app.R;
 import com.ubb.app.models.News;
 import com.ubb.app.models.NewsList;
+import com.ubb.app.service.RSSLoader;
+import com.ubb.app.service.RSSLoaderCallback;
 import com.ubb.app.views.AllNewsLayout;
 
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -23,14 +27,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(allNewsLayout);
 
 
-        NewsList newsList = new NewsList();
-        newsList.addNews(new News("titlu", "data", "content", "<html>"));
-        newsList.addNews(new News("titlu", "data", "content", "<html>"));
-        newsList.addNews(new News("titlu", "data", "content", "<html>"));
-        newsList.addNews(new News("titlu", "data", "content", "<html>"));
-        newsList.addNews(new News("titlu", "data", "content", "<html>"));
-        newsList.addNews(new News("titlu", "data", "content", "<html>"));
-        allNewsLayout.setNewsListModel(newsList);
+         RSSLoader.getRSSItems(new RSSLoaderCallback() {
+            @Override
+            public void onGetRSS(List<RssItem> items) {
+
+            }
+        });
 
         Toast.makeText(getApplicationContext(), "BANG", Toast.LENGTH_SHORT).show();
 
