@@ -30,7 +30,7 @@ public class XmlUnitTests {
             "                     <dc:creator></dc:creator>\n" +
             "                     <category>category</category>\n" +
             "                     <guid isPermaLink=\"false\">http://www.cs.ubbcluj.ro/?p=22185</guid>\n" +
-            "                     <description></description>\n" +
+            "                     <description>des</description>\n" +
             "                     <content:encoded>content:encoded</content:encoded>\n" +
             "                     <wfw:commentRss></wfw:commentRss>\n" +
             "                     <slash:comments>0</slash:comments>\n" +
@@ -61,5 +61,6 @@ public class XmlUnitTests {
     public void xmlTestTitle() {
         RssItem item = XmlRssParser.getRssItemsFromXml(xml).get(0);
         assertEquals(item.getTitle(), "title");
+        assertEquals(item.getDescription(), "des");
     }
 }
