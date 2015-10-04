@@ -1,6 +1,7 @@
 package com.ubb.app.adapters;
 
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,7 +47,10 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
         final RssItem item = items.get(position);
 
         holder.title.setText(item.getTitle());
-        holder.content.setText(item.getDescription());
+        if (item.getDescription() == null)
+            holder.content.setText(null);
+        else
+            holder.content.setText(Html.fromHtml(item.getDescription()));
         holder.content.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
