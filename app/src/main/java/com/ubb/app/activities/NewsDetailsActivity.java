@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.shirwa.simplistic_rss.RssItem;
 import com.ubb.app.R;
 import com.ubb.app.views.NewsLayout;
 
@@ -24,7 +25,14 @@ public class NewsDetailsActivity extends AppCompatActivity {
             finish();
             return;
         }
-
+        try {
+            newsLayout.setRssItem((RssItem) getIntent().getSerializableExtra(BUNDLE_NEWS));
+        } catch (Exception e) {
+            e.printStackTrace();
+            finish();
+            return;
+            /* the object sent as intent is not valid */
+        }
 
 
     }
