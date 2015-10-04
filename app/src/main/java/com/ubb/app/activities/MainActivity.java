@@ -27,14 +27,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(allNewsLayout);
 
 
-         RSSLoader.getRSSItems(new RSSLoaderCallback() {
+        RSSLoader.getRSSItems(new RSSLoaderCallback() {
             @Override
             public void onGetRSS(List<RssItem> items) {
+                if (items == null)
+                    Toast.makeText(getApplicationContext(), "null", Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(getApplicationContext(), "size" + items.size(), Toast.LENGTH_SHORT).show();
 
             }
         });
 
-        Toast.makeText(getApplicationContext(), "BANG", Toast.LENGTH_SHORT).show();
 
     }
 }
