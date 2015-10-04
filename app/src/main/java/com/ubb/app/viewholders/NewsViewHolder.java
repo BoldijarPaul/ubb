@@ -10,8 +10,8 @@ import com.ubb.app.R;
  * Created by Browsing on 10/4/2015.
  */
 public class NewsViewHolder extends RecyclerView.ViewHolder {
-    protected TextView title;
-    protected TextView content;
+    public TextView title;
+    public TextView content;
 
     public NewsViewHolder(View itemView) {
         super(itemView);
