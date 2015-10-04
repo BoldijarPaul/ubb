@@ -28,6 +28,7 @@ public class XmlRssParser {
             item.setDescription(XMLHelper.getValue(element, "description"));
             item.setPubDate(XMLHelper.getValue(element, "pubDate"));
             item.setContentEncoded(XMLHelper.getValue(element, "content:encoded"));
+            item.setCategory(XMLHelper.getValue(element, "category"));
 
 
             items.add(item);
