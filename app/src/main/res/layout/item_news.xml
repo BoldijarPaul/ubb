@@ -22,5 +22,13 @@
         android:layout_height="wrap_content"
         android:text="În semestrul II al anului universitar 2015-2016, facultatea noastă are la dispoziţie următoarele burse CEEPUS pentru care studenţii interesaţi pot depune cereri: ELTE Budapesta 1×1 lună Linz, Austria 1×4 luni + 1×1 lună Plovdiv, Bulgaria 1×1 lună Szeged, Ungaria 1×4 luni Este posibil să se primească locuri prin redistribuire şi la alte universităţi din Ungaria,"/>
 
-
+<View
+    android:layout_marginRight="10dp"
+    android:layout_marginLeft="10dp"
+    android:alpha="0.1"
+    android:layout_marginTop="14dp"
+    android:layout_marginBottom="14dp"
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:background="@color/colorPrimaryDark"/>
 </LinearLayout>

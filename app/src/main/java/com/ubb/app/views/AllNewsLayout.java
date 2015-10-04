@@ -2,12 +2,19 @@ package com.ubb.app.views;
 
 import android.content.Context;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import com.shirwa.simplistic_rss.RssItem;
 import com.ubb.app.R;
-import com.ubb.app.models.NewsList;
+import com.ubb.app.adapters.NewsAdapter;
+import com.ubb.app.service.RSSLoader;
+import com.ubb.app.service.RSSLoaderCallback;
 
+import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -17,8 +24,8 @@ import java.util.Observer;
 public class AllNewsLayout extends LinearLayout implements Observer {
 
     private SwipeRefreshLayout swipeRefreshLayout;
+    private RecyclerView recyclerView;
 
-    private NewsList newsListModel;
 
     public AllNewsLayout(Context context) {
         super(context);
@@ -39,14 +46,22 @@ public class AllNewsLayout extends LinearLayout implements Observer {
         initializeLayout();
     }
 
-    public void setNewsListModel(NewsList newsListModel) {
-        this.newsListModel = newsListModel;
-        this.newsListModel.addObserver(this);
-        updateView();
-    }
 
     private void initializeLayout() {
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.activity_main_swiperefresh);
+        recyclerView = (RecyclerView) findViewById(R.id.activity_main_recycler);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+
+        RSSLoader.getRSSItems(new RSSLoaderCallback() {
+            @Override
+            public void onGetRSS(List<RssItem> items) {
+                NewsAdapter adapter = new NewsAdapter();
+                adapter.setItems(items);
+                recyclerView.setAdapter(adapter);
+
+            }
+        });
 
 
     }

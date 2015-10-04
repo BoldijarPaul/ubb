@@ -7,9 +7,9 @@ import android.view.ViewGroup;
 
 import com.shirwa.simplistic_rss.RssItem;
 import com.ubb.app.R;
-import com.ubb.app.models.NewsList;
 import com.ubb.app.viewholders.NewsViewHolder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,14 +17,14 @@ import java.util.List;
  */
 public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
 
-    private NewsList newsList = new NewsList();
+    private List<RssItem> items = new ArrayList<>();
 
-    public void setNewsList(NewsList newsList) {
-        this.newsList = newsList;
+    public void setItems(List<RssItem> items) {
+        this.items = items;
     }
 
-    public NewsList getNewsList() {
-        return newsList;
+    public List<RssItem> getItems() {
+        return items;
     }
 
     @Override
@@ -35,7 +35,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
 
     @Override
     public void onBindViewHolder(NewsViewHolder holder, int position) {
-        RssItem item = newsList.getRssItem().get(position);
+        RssItem item = items.get(position);
 
         holder.title.setText(item.getTitle());
         holder.content.setText(item.getDescription());
@@ -44,6 +44,9 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
 
     @Override
     public int getItemCount() {
-        return newsList.getRssItem().size();
+        if (items == null) {
+            return 0;
+        }
+        return items.size();
     }
 }
