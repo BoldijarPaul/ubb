@@ -65,7 +65,10 @@ public class NewsLayout extends ScrollView implements Observer {
         if (rssItem != null) {
             title.setText(rssItem.getTitle());
             date.setText(rssItem.getPubDate());
-            content.setText(Html.fromHtml(rssItem.getContentEncoded()));
+            if (rssItem.getContentEncoded() == null)
+                rssItem.setContentEncoded(null);
+            else
+                content.setText(Html.fromHtml(rssItem.getContentEncoded()));
             category.setText(rssItem.getCategory());
         }
     }
