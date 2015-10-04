@@ -24,6 +24,7 @@ public class NewsLayout extends ScrollView implements Observer {
     public void setRssItem(RssItem rssItem) {
         this.rssItem = rssItem;
         rssItem.addObserver(this);
+        updateView();
     }
 
     public RssItem getRssItem() {
