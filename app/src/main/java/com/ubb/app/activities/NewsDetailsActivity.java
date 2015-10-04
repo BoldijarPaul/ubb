@@ -11,11 +11,20 @@ import com.ubb.app.R;
 import com.ubb.app.views.NewsLayout;
 
 public class NewsDetailsActivity extends AppCompatActivity {
+
+    public static String BUNDLE_NEWS = "news.";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         final NewsLayout newsLayout = (NewsLayout) View.inflate(this, R.layout.activity_news_details, null);
         setContentView(newsLayout);
+
+        if (getIntent().getParcelableExtra(BUNDLE_NEWS) == null) {
+            finish();
+            return;
+        }
+
 
 
     }
