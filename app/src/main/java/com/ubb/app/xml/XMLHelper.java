@@ -26,7 +26,7 @@ import javax.xml.parsers.ParserConfigurationException;
  */
 public class XMLHelper {
 
-    public String getXmlFromUrl(String urlAdress) {
+    public static String getXmlFromUrl(String urlAdress) {
         try {
             // Create a URL for the desired page
             URL url = new URL(urlAdress);

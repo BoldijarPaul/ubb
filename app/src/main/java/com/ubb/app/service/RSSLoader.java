@@ -4,6 +4,8 @@ import android.os.AsyncTask;
 
 import com.shirwa.simplistic_rss.RssItem;
 import com.shirwa.simplistic_rss.RssReader;
+import com.ubb.app.xml.XMLHelper;
+import com.ubb.app.xml.XmlRssParser;
 
 import java.util.List;
 
@@ -18,9 +20,10 @@ public class RSSLoader {
         new AsyncTask<Void, Void, List<RssItem>>() {
             @Override
             protected List<RssItem> doInBackground(Void... params) {
-                RssReader rssReader = new RssReader(RSS_URL);
+
                 try {
-                    return rssReader.getItems();
+                    String xml = XMLHelper.getXmlFromUrl(RSS_URL);
+                    return XmlRssParser.getRssItemsFromXml(xml);
                 } catch (Exception e) {
                     e.printStackTrace();
                     return null;
