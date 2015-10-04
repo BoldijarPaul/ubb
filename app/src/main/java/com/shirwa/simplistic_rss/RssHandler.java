@@ -32,6 +32,8 @@ public class RssHandler extends DefaultHandler {
     private boolean parsingLink;
     private boolean parsingDescription;
     private boolean parsingCategory;
+    private boolean parsingPubDate;
+    private boolean parsingContentEncoded;
 
     public RssHandler() {
         //Initializes a new ArrayList that will hold all the generated RSS items.
@@ -56,6 +58,10 @@ public class RssHandler extends DefaultHandler {
             parsingDescription = true;
         else if (qName.equals("category"))
             parsingCategory = true;
+        else if (qName.equals("pubDate"))
+            parsingPubDate = true;
+        else if (qName.equals("content:encoded"))
+            parsingContentEncoded = true;
         else if (qName.equals("media:thumbnail") || qName.equals("media:content") || qName.equals("image")) {
             if (attributes.getValue("url") != null)
                 currentItem.setImageUrl(attributes.getValue("url"));
@@ -77,6 +83,10 @@ public class RssHandler extends DefaultHandler {
             parsingDescription = false;
         else if (qName.equals("category"))
             parsingCategory = false;
+        else if (qName.equals("pubDate"))
+            parsingPubDate = false;
+        else if (qName.equals("content:encoded"))
+            parsingContentEncoded = false;
     }
 
     //Goes through character by character when parsing whats inside of a tag.
@@ -94,6 +104,11 @@ public class RssHandler extends DefaultHandler {
                 currentItem.setDescription(new String(ch, start, length));
             else if (parsingCategory)
                 currentItem.setCategory(new String(ch, start, length));
+            else if (parsingPubDate)
+                currentItem.setPubDate(new String(ch, start, length));
+            else if (parsingContentEncoded)
+                currentItem.setContentEncoded(new String(ch, start, length));
+
         }
     }
 }
