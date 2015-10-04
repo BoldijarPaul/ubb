@@ -24,7 +24,7 @@ public class XmlUnitTests {
             "       <channel>\n" +
             "              <item>\n" +
             "                     <title>title</title>\n" +
-            "                     <link>link</link>\n" +
+            "                     <link><![CDATA[url]]></link>\n" +
             "                     <comments>comments</comments>\n" +
             "                     <pubDate>pubDate</pubDate>\n" +
             "                     <dc:creator></dc:creator>\n" +
@@ -58,9 +58,10 @@ public class XmlUnitTests {
     }
 
     @Test
-    public void xmlTestTitle() {
+    public void xmlTestVariables() {
         RssItem item = XmlRssParser.getRssItemsFromXml(xml).get(0);
         assertEquals(item.getTitle(), "title");
         assertEquals(item.getDescription(), "des");
+        assertEquals("url", item.getLink());
     }
 }
