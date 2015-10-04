@@ -20,7 +20,6 @@
             android:fontFamily="sans-serif"
             android:text="11.11.220 21:23"
             android:textAllCaps="true"
-            android:textSize="14sp"
             android:textStyle="bold" />
 
         <TextView
@@ -30,7 +29,6 @@
             android:layout_marginBottom="20dp"
             android:fontFamily="sans-serif"
             android:text="Anunturi bursa"
-            android:textSize="14sp"
             android:textStyle="bold" />
 
         <TextView
@@ -40,7 +38,6 @@
             android:fontFamily="sans-serif"
             android:text="Premii UBB informatica"
             android:textAllCaps="true"
-            android:textSize="20sp"
             android:textStyle="bold" />
 
 
@@ -56,8 +53,7 @@
 
             Bla bla
 
-            ??"
-            android:textSize="17sp" />
+            ??" />
 
     </LinearLayout>
 </com.ubb.app.views.NewsLayout>
