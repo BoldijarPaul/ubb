@@ -7,15 +7,11 @@ import android.widget.Toast;
 
 import com.shirwa.simplistic_rss.RssItem;
 import com.ubb.app.R;
-import com.ubb.app.models.News;
-import com.ubb.app.models.NewsList;
 import com.ubb.app.service.RSSLoader;
 import com.ubb.app.service.RSSLoaderCallback;
 import com.ubb.app.views.AllNewsLayout;
 
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
