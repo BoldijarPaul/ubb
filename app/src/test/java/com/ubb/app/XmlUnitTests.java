@@ -41,7 +41,7 @@ public class XmlUnitTests {
             "                     <comments>http://www.cs.ubbcluj.ro/deschiderea-festiva-a-programului-de-conversie-profesionala-matematica/#comments</comments>\n" +
             "                     <pubDate>Thu, 01 Oct 2015 15:00:27 +0000</pubDate>\n" +
             "                     <dc:creator></dc:creator>\n" +
-            "                     <category></category>\n" +
+            "                     <category><![CDATA[Anunţuri burse Erasmus & CEEPUS]]></category>\n" +
             "                     <guid isPermaLink=\"false\">http://www.cs.ubbcluj.ro/?p=22022</guid>\n" +
             "                     <description></description>\n" +
             "                     <content:encoded></content:encoded>\n" +
@@ -63,5 +63,8 @@ public class XmlUnitTests {
         assertEquals(item.getTitle(), "title");
         assertEquals(item.getDescription(), "des");
         assertEquals("url", item.getLink());
+
+        RssItem item2 = XmlRssParser.getRssItemsFromXml(xml).get(1);
+        assertEquals("Anunţuri burse Erasmus & CEEPUS", item2.getCategory());
     }
 }
