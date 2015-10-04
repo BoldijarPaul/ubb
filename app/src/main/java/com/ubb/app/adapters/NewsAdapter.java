@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import com.shirwa.simplistic_rss.RssItem;
 import com.ubb.app.R;
+import com.ubb.app.interfaces.NewsClickListener;
 import com.ubb.app.viewholders.NewsViewHolder;
 
 import java.util.ArrayList;
@@ -16,6 +17,13 @@ import java.util.List;
  * Created by Browsing on 10/4/2015.
  */
 public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
+
+
+    private NewsClickListener onNewsClickListener;
+
+    public void setOnNewsClickListener(NewsClickListener onNewsClickListener) {
+        this.onNewsClickListener = onNewsClickListener;
+    }
 
     private List<RssItem> items = new ArrayList<>();
 
@@ -35,10 +43,18 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
 
     @Override
     public void onBindViewHolder(NewsViewHolder holder, int position) {
-        RssItem item = items.get(position);
+        final RssItem item = items.get(position);
 
         holder.title.setText(item.getTitle());
         holder.content.setText(item.getDescription());
+        holder.content.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (onNewsClickListener != null) {
+                    onNewsClickListener.onNewsClick(item);
+                }
+            }
+        });
 
     }
 
