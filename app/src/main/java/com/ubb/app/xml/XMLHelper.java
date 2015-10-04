@@ -72,12 +72,12 @@ public class XMLHelper {
         return doc;
     }
 
-    public String getValue(Element item, String str) {
+    public static String getValue(Element item, String str) {
         NodeList n = item.getElementsByTagName(str);
-        return this.getElementValue(n.item(0));
+        return getElementValue(n.item(0));
     }
 
-    public final String getElementValue( Node elem ) {
+    public static String getElementValue( Node elem ) {
         Node child;
         if( elem != null){
             if (elem.hasChildNodes()){
