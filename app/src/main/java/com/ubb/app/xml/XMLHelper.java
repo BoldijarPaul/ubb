@@ -2,6 +2,7 @@ package com.ubb.app.xml;
 
 import android.util.Log;
 
+import org.w3c.dom.CharacterData;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -77,17 +78,23 @@ public class XMLHelper {
         return getElementValue(n.item(0));
     }
 
-    public static String getElementValue( Node elem ) {
+    public static String getElementValue(Node elem) {
         Node child;
-        if( elem != null){
-            if (elem.hasChildNodes()){
-                for( child = elem.getFirstChild(); child != null; child = child.getNextSibling() ){
-                    if( child.getNodeType() == Node.TEXT_NODE  ){
+        if (elem != null) {
+            if (elem.hasChildNodes()) {
+                for (child = elem.getFirstChild(); child != null; child = child.getNextSibling()) {
+                    if (child.getNodeType() == Node.TEXT_NODE) {
                         return child.getNodeValue();
+                    }
+                    if (child.getNodeType() == Node.CDATA_SECTION_NODE) {
+                        if (child instanceof CharacterData) {
+                            CharacterData cd = (CharacterData) child;
+                            return cd.getData();
+                        }
                     }
                 }
             }
         }
-        return "";
+        return null;
     }
 }
