@@ -21,6 +21,34 @@ public class RssItem {
     String description;
     String link;
     String imageUrl;
+    String pubDate;
+    String category;
+    String contentEncoded;
+
+
+    public String getPubDate() {
+        return pubDate;
+    }
+
+    public void setPubDate(String pubDate) {
+        this.pubDate = pubDate;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getContentEncoded() {
+        return contentEncoded;
+    }
+
+    public void setContentEncoded(String contentEncoded) {
+        this.contentEncoded = contentEncoded;
+    }
 
     public String getDescription() {
         return description;
