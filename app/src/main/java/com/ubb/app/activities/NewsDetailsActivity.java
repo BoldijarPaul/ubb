@@ -20,7 +20,7 @@ public class NewsDetailsActivity extends AppCompatActivity {
         final NewsLayout newsLayout = (NewsLayout) View.inflate(this, R.layout.activity_news_details, null);
         setContentView(newsLayout);
 
-        if (getIntent().getParcelableExtra(BUNDLE_NEWS) == null) {
+        if (getIntent().getSerializableExtra(BUNDLE_NEWS) == null) {
             finish();
             return;
         }
