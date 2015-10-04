@@ -1,6 +1,7 @@
 package com.ubb.app.views;
 
 import android.content.Context;
+import android.os.Handler;
 import android.text.Html;
 import android.util.AttributeSet;
 import android.widget.ScrollView;
@@ -21,7 +22,7 @@ public class NewsLayout extends ScrollView implements Observer {
     private RssItem rssItem;
 
 
-    public void setRssItem(RssItem rssItem) {
+    public void setRssItem(final RssItem rssItem) {
         this.rssItem = rssItem;
         rssItem.addObserver(this);
         updateView();
