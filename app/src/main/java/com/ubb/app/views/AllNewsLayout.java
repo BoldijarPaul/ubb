@@ -1,6 +1,7 @@
 package com.ubb.app.views;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,7 +11,9 @@ import android.widget.Toast;
 
 import com.shirwa.simplistic_rss.RssItem;
 import com.ubb.app.R;
+import com.ubb.app.activities.NewsDetailsActivity;
 import com.ubb.app.adapters.NewsAdapter;
+import com.ubb.app.interfaces.NewsClickListener;
 import com.ubb.app.service.RSSLoader;
 import com.ubb.app.service.RSSLoaderCallback;
 
@@ -21,7 +24,7 @@ import java.util.Observer;
 /**
  * Created by Browsing on 10/3/2015.
  */
-public class AllNewsLayout extends LinearLayout implements Observer {
+public class AllNewsLayout extends LinearLayout implements Observer, NewsClickListener {
 
     private SwipeRefreshLayout swipeRefreshLayout;
     private RecyclerView recyclerView;
@@ -58,6 +61,7 @@ public class AllNewsLayout extends LinearLayout implements Observer {
             public void onGetRSS(List<RssItem> items) {
                 NewsAdapter adapter = new NewsAdapter();
                 adapter.setItems(items);
+                adapter.setOnNewsClickListener(AllNewsLayout.this);
                 recyclerView.setAdapter(adapter);
 
             }
@@ -73,5 +77,13 @@ public class AllNewsLayout extends LinearLayout implements Observer {
     public void update(Observable observable, Object data) {
         updateView();
 
+    }
+
+    @Override
+    public void onNewsClick(RssItem item) {
+        /* clicked a news */
+        Intent intent = new Intent(getContext(), NewsDetailsActivity.class);
+        intent.putExtra(NewsDetailsActivity.BUNDLE_NEWS, item);
+        getContext().startActivity(intent);
     }
 }
