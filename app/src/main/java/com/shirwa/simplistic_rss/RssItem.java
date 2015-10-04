@@ -16,7 +16,9 @@ package com.shirwa.simplistic_rss;
  * limitations under the License.
  */
 
-public class RssItem {
+import java.util.Observable;
+
+public class RssItem extends Observable {
     String title;
     String description;
     String link;
@@ -32,6 +34,8 @@ public class RssItem {
 
     public void setPubDate(String pubDate) {
         this.pubDate = pubDate;
+        setChanged();
+        notifyObservers();
     }
 
     public String getCategory() {
@@ -40,6 +44,8 @@ public class RssItem {
 
     public void setCategory(String category) {
         this.category = category;
+        setChanged();
+        notifyObservers();
     }
 
     public String getContentEncoded() {
@@ -48,6 +54,8 @@ public class RssItem {
 
     public void setContentEncoded(String contentEncoded) {
         this.contentEncoded = contentEncoded;
+        setChanged();
+        notifyObservers();
     }
 
     public String getDescription() {
@@ -60,6 +68,8 @@ public class RssItem {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+        setChanged();
+        notifyObservers();
     }
 
     public String getTitle() {
@@ -72,13 +82,19 @@ public class RssItem {
 
     public void setLink(String link) {
         this.link = link;
+        setChanged();
+        notifyObservers();
     }
 
     public void setDescription(String description) {
         this.description = description;
+        setChanged();
+        notifyObservers();
     }
 
     public void setTitle(String title) {
         this.title = title;
+        setChanged();
+        notifyObservers();
     }
 }
