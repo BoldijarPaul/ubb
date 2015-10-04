@@ -16,9 +16,10 @@ package com.shirwa.simplistic_rss;
  * limitations under the License.
  */
 
+import java.io.Serializable;
 import java.util.Observable;
 
-public class RssItem extends Observable {
+public class RssItem extends Observable implements Serializable {
     String title;
     String description;
     String link;
